@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="whatsapp.css">
+    <link rel="stylesheet" href="whatsapp.js">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form name="form_main" action="">
+        <div class="form">
+            <div class="title"> <img src="./img/eats.png" alt=""> Belmopan Eats</div>
+            <div class="subtitle">Eat What you Love!!</div>
+
+            <div class="input-container ic1">
+                <input type="text" name="fullname" id="fullname"  class="input"  placeholder="   " />
+                <div class="cut"></div>
+                <label for="name"  class="placeholder">Full Name</label>
+            </div>
+            <div class="input-container ic2">
+                <input type="text" name="phonenumber" id="phonenumber"  class="input"  placeholder="   " />
+                <div class="cut"></div>
+                <label for="phonenumber" class="placeholder">Phone Number</label>
+            </div>
+
+            <div class="input-container ic2">
+                <input type="text" name="address" id="address"  class="input"  placeholder="   " />
+                <div class="cut"></div>
+                <label for="address" class="placeholder">Address</label>
+            </div>
+            <div class="input-container order ic2">
+                <input type="text"  name="orderdetails" id="orderdetails" class="input"  placeholder="   " />
+                <div class="cut cut-short"></div>
+                <label for="orderdetails" class="placeholder">Order Details
+            </div>
+
+            <div class="input-container2 delivery">
+                <input type="checkbox"  name="delivery" id="delivery1" class="input-check"   placeholder="   " value="Pickup" />
+                <div></div>
+                <label for="delivery" class="placeholder-check">Pickup</label>
+            </div>
+
+            <div class="input-container2 delivery">
+                <input type="checkbox"  name="delivery" id="delivery2" class="input-check"  placeholder=" " value="Delivery" />
+                <div ></div>
+                <label for="delivery" class="placeholder-check">Delivery</label>
+            </div>
+
+            <p id="end_url"></p>
+            <img class="submit" src="./img/whatsappbbutton.png" onclick="generateLink()" alt="">
+    
+            
+            <h5> Powered by E-TRON</h5>
+    </div>
+    </form>      
+           
+            
+            <!-- <button type="button" onclick="generateLink()">Submit</button> -->
+         
+           
+    </div>
+   
+    
+    <script> function generateLink() {
+        var fullname = document.form_main.fullname.value;
+        var phonenumber = document.form_main.phonenumber.value;
+        var orderdetails= document.form_main.orderdetails.value;
+        var address= document.form_main.address.value;
+        var delivery = document.form_main.delivery1;
+        var delivery2 = document.form_main.delivery2;
+        if(delivery.checked==true){
+            var del = document.form_main.delivery1.value;
+        }
+        if(delivery2.checked==true){
+            var del = document.form_main.delivery2.value;
+        }
+           
+
+        var url = "https://api.whatsapp.com/send?phone=5016153524&text="
+        +"Full Name: " + fullname + "%0a"
+        + "%0a"
+        +"Phone Number: " + phonenumber + "%0a"
+        + "%0a"
+        +"Address: " + address + "%0a"
+        +"%0a"
+        +"Order: " + orderdetails + "%0a"
+        +"%0a"
+        +"Delivery/Pickup Status: " + del + "%0a";
+        var end_url = `${url}`;
+        window.location.href = end_url;
+        // document.getElementById('end_url').innerText = end_url;
+      }</script>
+   
+</body>
+</html>
